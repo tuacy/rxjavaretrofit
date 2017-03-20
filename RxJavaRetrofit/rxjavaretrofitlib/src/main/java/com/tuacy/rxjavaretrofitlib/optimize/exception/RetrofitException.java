@@ -6,7 +6,7 @@ public class RetrofitException extends Exception {
 	/**
 	 * 用来标示不同的异常
 	 */
-	private final int mExceptionCode;
+	private int mExceptionCode;
 
 	public RetrofitException(Throwable throwable, @RetrofitExceptionCode.CodeEp int exceptionCode) {
 		super(throwable);
@@ -15,6 +15,10 @@ public class RetrofitException extends Exception {
 
 	public int getExceptionCode() {
 		return mExceptionCode;
+	}
+
+	public void setExceptionCode(@RetrofitExceptionCode.CodeEp int exceptionCode) {
+		mExceptionCode = exceptionCode;
 	}
 
 }

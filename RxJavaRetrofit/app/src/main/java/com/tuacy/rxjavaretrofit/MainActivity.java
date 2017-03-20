@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.trello.rxlifecycle.android.ActivityEvent;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.tuacy.rxjavaretrofit.entity.api.LoginApi;
+import com.tuacy.rxjavaretrofit.entity.bridge.LoginBridge;
 import com.tuacy.rxjavaretrofitlib.optimize.RetrofitClient;
 
 public class MainActivity extends RxAppCompatActivity {
@@ -18,6 +19,6 @@ public class MainActivity extends RxAppCompatActivity {
 
 	private void initData() {
 		RetrofitClient manager = RetrofitClient.getInstance();
-		manager.doRequest(new LoginApi(), this.<String>bindUntilEvent(ActivityEvent.DESTROY));
+		manager.doRequest(new LoginApi(), new LoginBridge(), this.<String>bindUntilEvent(ActivityEvent.DESTROY));
 	}
 }
